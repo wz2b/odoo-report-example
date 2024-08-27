@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_coe_report_user,access_crm_lead_coe_report_user,model_crm_lead_coe_report,base.group_user,1,0,0,0
+access_crm_lead_coe_report_user,access_crm_lead_coe_report_user,odoo_crm_gis.model_crm_lead_coe_report,base.group_user,1,0,0,0

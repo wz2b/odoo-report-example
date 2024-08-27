@@ -1,0 +1,47 @@
+<odoo>
+    <!-- Report Action Definition -->
+    <record id="crm_lead_coe_report" model="ir.actions.report">
+        <field name="name">Custom CRM Lead Report</field>
+        <field name="model">crm.lead.coe_report</field>  <!-- Model on which the report is based -->
+        <field name="report_type">qweb-html</field>  <!-- Type of the report -->
+        <field name="report_name">odoo_crm_gis.coe_report_template</field> <!-- This should match the QWeb template ID -->
+    </record>
+
+    <!-- Menu Item for the Report -->
+    <menuitem
+        id="menu_crm_coe_report"
+        name="CRM COE Report"
+        parent="crm.crm_menu_report"
+        action="crm_lead_coe_report" 
+        sequence="10"
+    />
+
+    <!-- QWeb Template for the Report -->
+    <template id="odoo_crm_gis.coe_report_template">
+        <t t-call="web.external_layout">
+            <div class="page">
+                <h2>Custom CRM Lead Report</h2>
+                <main>
+                    <table class="table table-sm table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Lead Name</th>
+                                <th>Team Name</th>
+                                <th>Custom Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs" t-as="doc">
+                                <tr>
+                                    <td><span t-esc="doc['lead_name']"/></td>
+                                    <td><span t-esc="doc['team_name']"/></td>
+                                    <td><span t-esc="doc['custom_data']"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                </main>
+            </div>
+        </t>
+    </template>
+</odoo>
